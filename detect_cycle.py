@@ -1,15 +1,5 @@
 import graph
-
-def matrix_multiply(mat1, mat2):
-    """
-    Computes the result of multiplying two matrices, and returns the new matrix.
-    """
-    product = [[0 for _ in range(len(mat1))] for _ in range(len(mat2[0]))]
-    for i in range(len(mat1)):
-        for j in range(len(mat2[0])):
-            for k in range(len(mat2)):
-                product[i][j] += mat1[i][k]*mat2[k][j]
-    return product
+from matrix import matrix_multiply
 
 def has_cycle(graph):
     """
