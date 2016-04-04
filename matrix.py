@@ -40,8 +40,48 @@ def row_reduce(mat):
 	"""
 	Row reduces the input matrix and outputs the result.
 	"""
-	return None
+	
 
+def scale_row(mat, scale_factor, i):
+	"""
+	Multiplies every element in the given row by the input scale factor.
+	"""
+	for j in range(len(mat[i])):
+		mat[i][j] *= scale_factor
+
+def scale_row_copy(mat, scale_factor, i):
+	"""
+	Scales every element in a copy of the given row by the input scale factor and returns it.
+	"""
+	row = list(mat[i])
+	for j in range(len(row)):
+		row[j] *= scale_factor
+	return row
+
+def scale_column(mat, scale_factor, j):
+	"""
+	Multiplies every element in the given column by the input scale factor.
+	"""
+	for i in range(len(mat)):
+		mat[i][j] *= scale_factor
+
+def scale_column_copy(mat, scale_factor, j):
+	"""
+	Scales every element in a copy of the given row by the input scale factor and returns it.
+	"""
+	column = [mat[i][j] for i in range(len(mat))]
+	for i in range(len(column)):
+		column[i] *= scale_factor
+	return column
+
+def trace(mat):
+	"""
+	Returns the trace of the input matrix if the matrix is square. Returns
+	None otherwise.
+	"""
+	if len(mat) != len(mat[0]):
+		return None
+	return sum([mat[i][i] for i in range(len(mat))])
 
 def compute_determinant(mat):
 	"""
